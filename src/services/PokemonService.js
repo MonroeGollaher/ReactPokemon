@@ -1,4 +1,5 @@
-export async function getAllPokemon(url) {
+// Retreives Pokemon from api
+export async function getPokemon(url) {
   return new Promise((resolve, reject) => {
     fetch(url)
     .then(res => res.json())

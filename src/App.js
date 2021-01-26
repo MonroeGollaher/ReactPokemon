@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import { getAllPokemon, setPokemon } from "./services/PokemonService";
+import { getPokemon, setPokemon } from "./services/PokemonService";
+import Card from './components/Card'; 
 
 function App() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -11,7 +12,7 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      let res = await getAllPokemon(initUrl);
+      let res = await getPokemon(initUrl);
       setNextUrl(res.next);
       setPrevUrl(res.previous);
       await loadingPokemon(res.results);
@@ -31,9 +32,17 @@ function App() {
   console.log(pokemonData);
   return (
     <div className="App">
-      { loading  ? <h1>Loading...</h1> : (
-        <h1>Data is fetched</h1>
-      )}
+      { 
+        loading  ? <h1>Loading...</h1> : (
+          <>
+          <div className="grid-container">
+            { pokemonData.map((pokemon, i) => {
+              return <Card key={i} pokemon={pokemon} />
+            })}
+          </div>
+          </>
+        )
+      }
     </div>
   );
 }
