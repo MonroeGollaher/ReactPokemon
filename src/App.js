@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import { getPokemon, setPokemon } from "./services/PokemonService";
 import Card from './components/Card/Card'; 
+import Header from './components/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 
@@ -57,6 +58,9 @@ function App() {
 
   return (
     <div className="App">
+      <div className="row justify-content-center">
+        <Header />  
+      </div>
       <div className="row search-box justify-content-center pt-4">
         <div className="col-md-6">
           <input 
@@ -71,9 +75,6 @@ function App() {
       { 
         loading  ? <h1>Loading Pokemon...</h1> : (
           <>
-          <header>
-
-          </header>
           <div className="row justify-content-center">
             { searchResults.map((pokemon, index) => {
               return (
