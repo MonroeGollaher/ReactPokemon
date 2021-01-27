@@ -32,6 +32,10 @@ function Card({ imgUrl, name, rank, stats, pokeType }) {
       color = bgColor[pokeType];
   }
 
+  function capitalize(name) {
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  }
+
   return (
     <div className="col-2 card-container">
       <div className="card-face card">
@@ -40,8 +44,8 @@ function Card({ imgUrl, name, rank, stats, pokeType }) {
             <img src={ imgUrl } alt="" className="img-fluid"/>
           </div>
           <h4 className="rank"># { rank }</h4>
-          <h4>{ name }</h4>
-          <h4>{ pokeType }</h4>
+          <h4>{ capitalize(name) }</h4>
+          <h4>{ capitalize(pokeType) }</h4>
         </div>
         <div className="card-face back-card">
           <div className="stats">

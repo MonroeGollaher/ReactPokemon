@@ -3,12 +3,14 @@ import './App.css';
 import { getPokemon, setPokemon } from "./services/PokemonService";
 import Card from './components/Card/Card'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 
 function App() {
   const [pokemonData, setPokemonData] = useState([]);
   const [nextUrl, setNextUrl] = useState('');
   const [prevUrl, setPrevUrl] = useState('');
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
   const initUrl = 'https://pokeapi.co/api/v2/pokemon'; 
 
   useEffect(() => {
@@ -48,17 +50,35 @@ function App() {
     setPrevUrl(data.previous);
     setLoading(false);
   }
-  console.log(pokemonData);
+
+  const searchResults = pokemonData.filter( p => {
+    return p.name.toLowerCase().includes(search.toLowerCase())
+  })
+
   return (
     <div className="App">
+      <div className="row search-box justify-content-center pt-4">
+        <div className="col-md-6">
+          <input 
+            type="text" 
+            placeholder="Search..." 
+            onChange={ e => setSearch(e.target.value) }
+            className="search-bar shadow"
+          />
+        </div>
+      </div>
+
       { 
         loading  ? <h1>Loading Pokemon...</h1> : (
           <>
+          <header>
+
+          </header>
           <div className="row justify-content-center">
-            { pokemonData.map((pokemon) => {
+            { searchResults.map((pokemon, index) => {
               return (
                 <Card 
-                  key={pokemon.id}
+                  key={index}
                   name={pokemon.name}
                   imgUrl={pokemon.sprites.other["official-artwork"].front_default}
                   rank={pokemon.id}
@@ -68,9 +88,19 @@ function App() {
               )
             })}
           </div>
-          <div className="btn">
-            <button onClick={prev}>Prev</button>
-            <button onClick={next}>Next</button>
+          <div className="row justify-content-center pb-4">
+            <Button 
+              onClick={prev}
+              className="btn mx-2"
+            > 
+              Prev 
+            </Button>
+            <Button 
+              onClick={next}
+              className="btn mx-2"
+            >
+              Next
+            </Button>
           </div>
           </>
         )
