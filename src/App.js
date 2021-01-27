@@ -54,7 +54,7 @@ function App() {
       { 
         loading  ? <h1>Loading Pokemon...</h1> : (
           <>
-          <div className="container">
+          <div className="row justify-content-center">
             { pokemonData.map((pokemon) => {
               return (
                 <Card 
@@ -69,9 +69,9 @@ function App() {
             })}
           </div>
           <div className="btn">
-              <button onClick={prev}>Prev</button>
-              <button onClick={next}>Next</button>
-            </div>
+            <button onClick={prev}>Prev</button>
+            <button onClick={next}>Next</button>
+          </div>
           </>
         )
       }

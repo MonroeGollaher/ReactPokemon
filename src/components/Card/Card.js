@@ -32,13 +32,9 @@ function Card({ imgUrl, name, rank, stats, pokeType }) {
       color = bgColor[pokeType];
   }
 
-  function clicked() {
-
-  }
-
   return (
-    <div className="card-container" onClick={clicked}>
-      <div className="card">
+    <div className="col-2 card-container">
+      <div className="card-face card">
         <div className="front-card" style = {{backgroundColor : color}}>
           <div className="img-container">
             <img src={ imgUrl } alt="" className="img-fluid"/>
@@ -47,7 +43,7 @@ function Card({ imgUrl, name, rank, stats, pokeType }) {
           <h4>{ name }</h4>
           <h4>{ pokeType }</h4>
         </div>
-        {/* <div className="back-card">
+        <div className="card-face back-card">
           <div className="stats">
             { stats.map((pokemon, index) => (
               <StatsBar 
@@ -57,7 +53,8 @@ function Card({ imgUrl, name, rank, stats, pokeType }) {
               />
           )) }
           </div>
-        </div> */}
+        </div>
+        
       </div>
     </div>
   )

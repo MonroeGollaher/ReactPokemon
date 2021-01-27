@@ -1,7 +1,7 @@
 .body {
-  background: linear-gradient(to right, #c9ffbf, #ffafbd);
   margin: 0;
   user-select: none;
+  background: linear-gradient(to right, #c9ffbf, #ffafbd);
 }
 .container {
   display: flex;
