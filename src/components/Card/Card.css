@@ -55,11 +55,8 @@
 }
 
 .back-card {
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
   transform: rotateY(180deg);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   overflow: hidden;
   border-radius: 10px;
 }
@@ -72,11 +69,6 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-}
-
-h3 {
-  text-transform: capitalize;
-  margin: 3%;
 }
 
 .rank {

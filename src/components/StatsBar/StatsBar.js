@@ -10,7 +10,7 @@ function StatsBar({statName, width}) {
                     
                 </div>
             </div>
-    <span >{width}</span>
+            <span >{width}</span>
         </div>
     )
 }

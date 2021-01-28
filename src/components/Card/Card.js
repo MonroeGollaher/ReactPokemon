@@ -37,7 +37,7 @@ function Card({ imgUrl, name, rank, stats, pokeType }) {
   }
 
   return (
-    <div className="col-2 card-container">
+    <div className="col-md-2 card-container">
       <div className="card-face card">
         <div className="front-card" style = {{backgroundColor : color}}>
           <div className="img-container">
