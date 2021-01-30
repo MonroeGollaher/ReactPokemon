@@ -1,7 +1,7 @@
 import React from 'react';
 import StatsBar from '../StatsBar/StatsBar'
+import AddBtn from '../AddBtn/AddBtn'
 import './Card.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 function Card({ imgUrl, name, rank, stats, pokeType }) {
 
@@ -37,7 +37,7 @@ function Card({ imgUrl, name, rank, stats, pokeType }) {
   }
 
   return (
-    <div className="col-md-2 card-container">
+    <div className="card-container">
       <div className="pokeCard">
         <div className="front-card" style = {{backgroundColor : color}}>
           <div className="img-container">
@@ -56,9 +56,11 @@ function Card({ imgUrl, name, rank, stats, pokeType }) {
                 statName= {pokemon.stat.name}
               />
           )) }
+              <AddBtn 
+                color={ color }
+              />
           </div>
         </div>
-        
       </div>
     </div>
   )
